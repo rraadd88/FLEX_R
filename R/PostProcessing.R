@@ -787,6 +787,7 @@ getSubsetOfCoAnnRemovePairs <- function(data_standard, data_subset, gene_list, r
     data.output <- data.output[-log_ind_pos[ind_saved[interested_indices]], ]
   } else { # Way 2: Convert the positive examples associated with '320' to negative
     if (sum(grepl('true', colnames(data.relevant)))){
+    # if (sum(grepl('true', colnames(data.output)))){
       data.output$true[log_ind_pos[ind_saved[interested_indices]]] <- 0
     } else{
       data.output$is_annotated[log_ind_pos[ind_saved[interested_indices]]] <- 0

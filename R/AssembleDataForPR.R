@@ -37,10 +37,14 @@ CalculatePredictionAndTrueOnLibraryProfiles <- function(data.standard, data.inte
   ## *** Check input data format
   
   # ------------- 1. data.standard -------------
-  true_classes_count <- ((class(data.standard) == 'data.frame') | (class(data.standard) == 'list')) + (class(data.interaction) == 'data.frame' | class(data.interaction) == 'matrix')
-  if(true_classes_count < 2){
-    stop ("Check the inputs again ... they are supposed to be data.frame's")
-  }
+  # true_classes_count <- ((class(data.standard) == 'data.frame') | (class(data.standard) == 'list')) + (class(data.interaction) == 'data.frame' | class(data.interaction) == 'matrix')
+  # if(true_classes_count < 2){
+  if( !(class(data.standard) == 'data.frame')){
+    stop ("Check the inputs again ... they are supposed to be data.frame's")      
+  } 
+  if( !(class(data.interaction) == 'data.frame')){
+    stop ("Check the inputs again ... they are supposed to be data.frame's")      
+  } 
   
   true_column_type <- ((class(data.standard[,1]) == 'character') + (class(data.standard[,2]) == 'character') + ((class(data.standard[,3]) == 'integer') | (class(data.standard[,3]) == 'numeric')))
   if(true_column_type < 3){
@@ -196,6 +200,8 @@ FromAllPairwiseCorrelation <- function(data.standard, pairwise.correlation){
   pb <- txtProgressBar(style = 3) 
   pb_count <- 0
   
+  print(lenngth(ind.int.genes.in.std))
+    
   for (i in ind.int.genes.in.std){ # i -> index of gene in data.interaction
     curr.unique.gene <- gene.symbol[i]
     

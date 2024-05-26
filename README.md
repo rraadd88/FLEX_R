@@ -5,6 +5,9 @@ R package for FLEX (Functional evaluation of experimental perturbations), a pipe
 FLEX_R is compatiable with R version >= 3.4.3 and doesn't have any dependency except for if someone wish to use the GIANT functional network as a standard ('org.Hs.eg.db' is needed in that case). 
 
 FLEX can be installed directly from github using install_github('csbio/FLEX_R') and this requires the 'devtools' package.
-
+```
+install.packages("devtools")
+devtools::install_github('csbio/FLEX_R')
+```
 ## Questions and Comments
 Please email to rahma118@umn.edu or mahfuz05062@gmail.com if you have any questions, comments, potential bugs or suggestions!
